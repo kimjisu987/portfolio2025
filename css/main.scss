@@ -1063,10 +1063,11 @@ main {
                         width: 100%; height: 100%;
                     }
                     .piecontainer {
-                        width: 100%; height: 100%;
+                        width: 100%; height: auto;
                         position: relative;
                         background-color: var(--whiteColor);
                         border-radius: 50%;
+                        aspect-ratio: 1;
                     }
                     .piecover {
                         position: absolute;
@@ -1075,6 +1076,7 @@ main {
                         background-color: var(--backColor);
                         width: 80%; height: 80%;
                         border-radius: 50%;
+                        aspect-ratio: 1;
                     }
                     .piechart {
                         display: block;
