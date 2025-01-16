@@ -358,7 +358,9 @@ $(document).on("click", ".gnbToggle", function() {
         $(this).addClass("gnbOn").next(".gnb").fadeIn();
     }
 });
-$(document).on("click", ".gnb", function(e) {
-    $(".gnbToggle").removeClass("gnbOn");
-    $(this).fadeOut();
+$(document).on("click", ".gnb", function() {
+    if ($(".gnbToggle").css("display") !== "none") {
+        $(".gnbToggle").removeClass("gnbOn");
+        $(this).fadeOut();
+    }
 });
