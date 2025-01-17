@@ -1379,7 +1379,7 @@ main .projectBottom .projectCate {
 @media screen and (max-width: 768px) {
   main .projectBottom .projectCate {
     gap: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 main .projectBottom .projectCate li {
