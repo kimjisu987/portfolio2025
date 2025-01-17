@@ -606,6 +606,7 @@ main .mainTop {
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  white-space: nowrap;
 }
 @media screen and (max-width: 768px) {
   main .mainTop {
