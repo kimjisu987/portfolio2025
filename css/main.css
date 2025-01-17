@@ -702,30 +702,46 @@ main .mainTop .profile .tooltip {
   width: max-content;
   height: -moz-fit-content;
   height: fit-content;
-  bottom: -70px;
+  bottom: -100px;
   padding: 10px 20px;
   background-color: var(--whiteColor);
   border-radius: 20px;
   box-shadow: 0 0 6px rgb(168, 168, 168);
 }
-main .mainTop .profile .tooltip p {
+main .mainTop .profile .tooltip p, main .mainTop .profile .tooltip a {
+  display: block;
   line-height: 160%;
   height: -moz-fit-content;
   height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  main .mainTop .profile .tooltip p, main .mainTop .profile .tooltip a {
+    display: none;
+  }
 }
 main .mainTop .profile .mobileProfile {
   display: none;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
+}
+main .mainTop .profile .notionLink {
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #FFDA74;
+  margin-left: auto;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10px;
+  margin-top: 0.2rem;
+  font-weight: 500;
 }
 @media screen and (max-width: 768px) {
-  main .mainTop .profile img {
-    display: none;
+  main .mainTop .profile .notionLink {
+    margin-left: 0;
   }
-  main .mainTop .profile p {
-    display: none;
-  }
-  main .mainTop .profile button {
+}
+@media screen and (max-width: 768px) {
+  main .mainTop .profile img, main .mainTop .profile p, main .mainTop .profile button {
     display: none;
   }
   main .mainTop .profile .mobileProfile {

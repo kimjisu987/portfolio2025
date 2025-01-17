@@ -329,24 +329,39 @@ main {
                 display: none;
                 position: absolute; z-index: 10;
                 width: max-content; height: fit-content;
-                bottom: -70px;
+                bottom: -100px;
                 padding: 10px 20px;
                 background-color: var(--whiteColor);
                 border-radius: 20px;
                 box-shadow: 0 0 6px rgb(168, 168, 168);
-                p {
+                p, a {
+                    display: block;
                     line-height: 160%; height: fit-content;
+                }
+                @include media('mobile') {
+                    p, a {display: none;}
                 }
             }
             .mobileProfile {
                 display: none;
                 width: 100%;
                 justify-content: space-between;
+                align-items: center;
+            }
+            .notionLink {
+                width: fit-content;
+                background: $mainColor;
+                margin-left: auto;
+                padding: 0.2rem 0.8rem;
+                border-radius: 10px;
+                margin-top: 0.2rem;
+                font-weight: 500;
+                @include media('mobile') {
+                    margin-left: 0;
+                }
             }
             @include media('mobile') {
-                img {display: none;}
-                p {display: none;}
-                button {display: none;}
+                img, p, button {display: none;}
                 .mobileProfile {
                     display: flex;
                 }
