@@ -1,8 +1,30 @@
 ﻿{
+  "update":[
+    {
+      "profile":"2025-01-23",
+      "experience":"",
+      "project":"2025-01-23",
+      "certificate":"2024-09-01",
+      "skill":"2025-01-23"
+    }
+  ],
+  "profile":[
+    {
+      "name":"김지수",
+      "nameE":"KIM JISU",
+      "date":"1991-10-29",
+      "mbti":"INFJ",
+      "address":"서울 중랑",
+      "email":"jbmyellow@naver.com",
+      "notion":"https://yummy-feta-11c.notion.site/156f3a26009a803ea178e6d44e33faeb?pvs=4",
+      "hobby":["여행","게임","정리정돈"],
+      "tel":"01066375153"
+    }
+  ],
   "experience":[
     {
       "no":"1",
-      "relation":"1",
+      "relation":"0",
       "company":"인터넷쇼핑몰(폐업)",
       "startdate":"2011-04",
       "enddate":"2012-05",
@@ -29,7 +51,7 @@
       "startdate":"2016-11",
       "enddate":"2017-05",
       "rank":"CS팀 선임",
-      "position":"고객서비스관리",
+      "position":"CS",
       "detail":"인바운드 상담을 통해 고객의 요구와 문제를 신속하고 효율적으로 해결하며, 직원 교육을 통해 팀의 역량을 강화하고 업무 효율성을 높였습니다.",
       "logo":"transcosmos-logo.svg"
     },
@@ -70,14 +92,14 @@
   "project":[
     {
       "no":"1",
-      "cate":"team",
+      "cate":"TEAM",
       "favicon":"favi_samsung.jpg",
       "mainimg":"main_samsung.jpg",
       "name":"삼성중공업 리뉴얼",
       "intro":"시가총액 100대 기업내 선정 웹 리뉴얼 프로젝트",
       "startdate":"2024-05-03",
       "enddate":"2024-05-21",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"그린컴퓨터아트학원",
       "contribution":"25%",
       "mainlang":["HTML5","CSS3","JavaScript","jQuery"],
@@ -91,14 +113,14 @@
     },
     {
       "no":"2",
-      "cate":"personal",
+      "cate":"PERS",
       "favicon":"favi_jejudog.jpg",
       "mainimg":"main_jejudog.jpg",
       "name":"제주독",
       "intro":"반려동물 동반 제주도 여행 웹 개발",
       "startdate":"2024-06-13",
       "enddate":"2024-06-20",
-      "position":["디자인","퍼블리싱","프론트엔드","백엔드"],
+      "position":["PUBL","FE","UX/UI","BE"],
       "company":"그린컴퓨터아트학원",
       "contribution":"100%",
       "mainlang":["HTML5","CSS3","JavaScript","jQuery","PHP"],
@@ -112,14 +134,14 @@
     },
     {
       "no":"3",
-      "cate":"team",
+      "cate":"TEAM",
       "favicon":"favi_sfa.jpg",
       "mainimg":"main_sfa.jpg",
       "name":"SFA LMS 학습지원",
       "intro":"데이터베이스를 활용한 영화 교육 관련 LMS 웹 개발",
       "startdate":"2024-06-20",
       "enddate":"2024-08-13",
-      "position":["디자인","퍼블리싱","프론트엔드","백엔드"],
+      "position":["PUBL","FE","UX/UI","BE"],
       "company":"그린컴퓨터아트학원",
       "contribution":"40%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery","Ajax","PHP"],
@@ -133,14 +155,14 @@
     },
     {
       "no":"4",
-      "cate":"personal",
+      "cate":"PERS",
       "favicon":"favi_modong.jpg",
       "mainimg":"main_modong.jpg",
       "name":"모동숲 포트폴리오",
       "intro":"게임을 모티브로 하여 동적인 인터랙션을 강조한 PC 전용 포트폴리오",
       "startdate":"2024-09-03",
       "enddate":"2024-09-15",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"개인프로젝트",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery"],
@@ -154,14 +176,14 @@
     },
     {
       "no":"5",
-      "cate":"personal",
+      "cate":"PERS",
       "favicon":"favi_todo.jpg",
       "mainimg":"main_todo.jpg",
       "name":"리액트 투두리스트",
       "intro":"리액트를 활용하여 컴포넌트 기반 구조로 구현한 투두 리스트",
       "startdate":"2024-09-15",
       "enddate":"2024-09-19",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"그린컴퓨터아트학원",
       "contribution":"100%",
       "mainlang":["React","CSS3","JavaScript"],
@@ -175,14 +197,14 @@
     },
     {
       "no":"6",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_jecheon.jpg",
       "mainimg":"main_jecheon.jpg",
       "name":"제천시농촌신활력플러스사업추진단",
       "intro":"도시가 위치한 북부권과 농촌지역인 남부권의 거리적 제한을 온라인 커뮤니티 구축을 통해 밀착형 도농교류가 이뤄질 수 있도록 커뮤니티 구축",
       "startdate":"2024-10-07",
       "enddate":"2024-11-05",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"60%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery"],
@@ -196,14 +218,14 @@
     },
     {
       "no":"7",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_esl.jpg",
       "mainimg":"main_esl.jpg",
       "name":"ESL 모바일 리디자인",
       "intro":"ESL 웹페이지와 유사한 디자인으로 APP 리디자인",
       "startdate":"2024-11-06",
       "enddate":"2024-11-20",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"100%",
       "mainlang":["HTML5","CSS3"],
@@ -217,14 +239,14 @@
     },
     {
       "no":"8",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_daegu.jpg",
       "mainimg":"main_daegu.jpg",
       "name":"대구광역시학원총연합회 마케팅 플랫폼",
       "intro":"SLK 홍보 내용 중심의 솔루션 기능과 학원 홍보가 결합된 대구광역시학원총연합회 마케팅 플랫폼",
       "startdate":"2024-11-27",
       "enddate":"2024-12-02",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery"],
@@ -238,14 +260,14 @@
     },
     {
       "no":"9",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_dongnelogin.jpg",
       "mainimg":"main_dongnelogin.jpg",
       "name":"로그인페이지 리디자인",
       "intro":"기존 디자인을 바탕으로 컬러 팔레트를 유지하면서 UI를 리디자인하여 사용성을 개선",
       "startdate":"2024-12-04",
       "enddate":"2024-12-05",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"100%",
       "mainlang":["HTML5","CSS3","JavaScript","jQuery"],
@@ -259,14 +281,14 @@
     },
     {
       "no":"10",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_dgakey.jpg",
       "mainimg":"main_dgakey.jpg",
       "name":"DGA학원KEY",
       "intro":"대구광역시학원을 홍보할 수 있는 페이지 개발",
       "startdate":"2024-12-02",
       "enddate":"2024-12-20",
-      "position":["디자인","퍼블리싱","프론트엔드"],
+      "position":["PUBL","FE","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery","Ajax"],
@@ -280,14 +302,14 @@
     },
     {
       "no":"11",
-      "cate":"personal",
+      "cate":"PERS",
       "favicon":"favi_todays_lunch.jpg",
       "mainimg":"main_todays_lunch.jpg",
       "name":"점메추",
       "intro":"회사 근처 음식점을 랜덤으로 추천해주는 웹",
       "startdate":"2024-12-24",
       "enddate":"2024-12-24",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"개인프로젝트",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript"],
@@ -301,14 +323,14 @@
     },
     {
       "no":"12",
-      "cate":"personal",
+      "cate":"PERS",
       "favicon":"favi_ourchat.jpg",
       "mainimg":"main_ourchat.jpg",
       "name":"OURCHAT",
       "intro":"사내 개발팀을 위해 개발된 미니멀한 채팅 프로그램",
       "startdate":"2024-12-26",
       "enddate":"2024-12-27",
-      "position":["디자인","퍼블리싱"],
+      "position":["PUBL","UX/UI"],
       "company":"개인프로젝트",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript"],
@@ -322,14 +344,14 @@
     },
     {
       "no":"13",
-      "cate":"company",
+      "cate":"CO",
       "favicon":"favi_dongne.jpg",
       "mainimg":"main_dongne.jpg",
       "name":"동네학원 리뉴얼",
       "intro":"기존 동네학원 랜딩페이지 리뉴얼",
       "startdate":"2025-01-06",
-      "enddate":"2025-01-16",
-      "position":["디자인","퍼블리싱"],
+      "enddate":"2025-01-23",
+      "position":["PUBL","UX/UI"],
       "company":"스마트러닝코리아",
       "contribution":"100%",
       "mainlang":["HTML5","SCSS","JavaScript","jQuery"],
@@ -345,87 +367,113 @@
   "certificate":[
     {
       "no":"1",
-      "date":"2007-09",
-      "name":"정보기술자격(ITQ) 한글파워포인트(한쇼) A등급",
+      "date":"2007-09-07",
+      "name":"ITQ 파워포인트 A등급",
       "issuer":"한국생산성본부",
-      "langs":["Powerpoint"]
+      "langs":["Powerpoint"],
+      "cate":"OA",
+      "detail":"파워포인트 프로그램을 활용한 프레젠테이션 작성 능력을 인증하는 자격증"
     },
     {
       "no":"2",
-      "date":"2020-11",
+      "date":"2020-11-25",
       "name":"자동차운전면허증 2종보통",
       "issuer":"서울지방경찰청",
-      "langs":["운전면허"]
+      "langs":["운전면허"],
+      "cate":"etc",
+      "catedetail":"car",
+      "detail":"일반적인 승용차 운전 능력을 인증하는 자격증"
     },
     {
       "no":"3",
-      "date":"2021-03",
-      "name":"GTQid(그래픽기술자격) 1급",
+      "date":"2021-03-19",
+      "name":"GTQ 1급",
       "issuer":"한국생산성본부",
-      "langs":["Photoshop"]
+      "langs":["Photoshop"],
+      "cate":"design",
+      "detail":"그래픽 디자인 툴인 포토샵을 활용한 디자인 능력을 인증하는 자격증"
     },
     {
       "no":"4",
-      "date":"2021-03",
-      "name":"GTQid(그래픽기술자격 일러스트) 1급",
+      "date":"2021-03-19",
+      "name":"GTQi 1급",
       "issuer":"한국생산성본부",
-      "langs":["Illustrator"]
+      "langs":["Illustrator"],
+      "cate":"design",
+      "detail":"그래픽 디자인 툴인 일러스트레이터를 활용한 디자인 능력을 인증하는 자격증"
     },
     {
       "no":"5",
-      "date":"2021-06",
-      "name":"GTQid(그래픽기술자격 인디자인) 1급",
+      "date":"2021-06-11",
+      "name":"GTQid 1급",
       "issuer":"한국생산성본부",
-      "langs":["InDesign"]
+      "langs":["InDesign"],
+      "cate":"design",
+      "detail":"그래픽 디자인 툴인 인디자인을 활용한 디자인 능력을 인증하는 자격증"
     },
     {
       "no":"6",
-      "date":"2021-07",
+      "date":"2021-07-16",
       "name":"컴퓨터그래픽스운용기능사",
       "issuer":"한국산업인력공단",
-      "langs":["Photoshop", "Illustrator", "InDesign"]
+      "langs":["Photoshop", "Illustrator", "InDesign"],
+      "cate":"design",
+      "detail":"컴퓨터 그래픽스 관련 기술과 소프트웨어 활용 능력을 인증하는 자격증"
     },
     {
       "no":"7",
-      "date":"2021-12",
-      "name":"정보기술자격(ITQ) 한글엑셀(한셀) A등급",
+      "date":"2021-12-16",
+      "name":"ITQ 한글엑셀 A등급",
       "issuer":"한국생산성본부",
-      "langs":["Excel"]
+      "langs":["Excel"],
+      "cate":"OA",
+      "detail":"한글엑셀 프로그램을 활용한 스프레드시트 작성 및 처리 능력을 인증하는 자격증"
     },
     {
       "no":"8",
-      "date":"2021-12",
-      "name":"정보기술자격(ITQ) 인터넷 A등급",
+      "date":"2021-12-16",
+      "name":"ITQ 인터넷 A등급",
       "issuer":"한국생산성본부",
-      "langs":["Internet"]
+      "langs":["Internet"],
+      "cate":"OA",
+      "detail":"인터넷 관련 기본 기술과 활용 능력을 평가하는 자격증"
     },
     {
       "no":"9",
-      "date":"2021-12",
-      "name":"정보기술자격(ITQ) 아래한글 A등급",
+      "date":"2021-12-16",
+      "name":"ITQ 아래한글 A등급",
       "issuer":"한국생산성본부",
-      "langs":["아래한글"]
+      "langs":["아래한글"],
+      "cate":"OA",
+      "detail":"아래한글 프로그램을 활용한 문서 작성 및 편집 능력을 인증하는 자격증"
     },
     {
       "no":"10",
-      "date":"2024-06",
-      "name":"경제 이해력 검증 시험(TESAT) 2급",
+      "date":"2024-06-29",
+      "name":"TESAT 2급",
       "issuer":"한국경제신문",
-      "langs":["시장경제에 대한 지식과 이해도를 측정하는 테스트"]
+      "langs":["시장경제에 대한 지식과 이해도를 측정하는 테스트"],
+      "cate":"etc",
+      "catedetail":"eco",
+      "detail":"경제 전반에 대한 이해도와 문제 해결 능력을 평가하는 시험"
     },
     {
       "no":"11",
-      "date":"2024-09",
+      "date":"2024-09-11",
       "name":"전자출판기능사",
       "issuer":"한국산업인력공단",
-      "langs":["Photoshop", "Illustrator", "InDesign"]
+      "langs":["Photoshop", "Illustrator", "InDesign"],
+      "cate":"design",
+      "detail":"전자출판물 제작 및 편집에 필요한 기술을 인증하는 자격증"
     },
     {
       "no":"12",
-      "date":"2024-09",
+      "date":"2024-09-11",
       "name":"웹디자인기능사",
       "issuer":"한국산업인력공단",
-      "langs":["VSCode", "HTML5", "CSS3", "jQuery", "Photoshop", "Illustrator"]
+      "langs":["VSCode", "HTML5", "CSS3", "jQuery", "Photoshop", "Illustrator"],
+      "cate":"design",
+      "detail":"웹사이트 디자인 및 개발 관련 실무 능력을 평가하는 국가 자격증"
     }
   ],
   "skill":[
@@ -443,33 +491,33 @@
     },
     {
       "no":"3",
-      "name":"Bootstrap",
-      "category":"퍼블리싱",
-      "level":"70"
-    },
-    {
-      "no":"4",
       "name":"SCSS",
       "category":"퍼블리싱",
       "level":"80"
     },
     {
-      "no":"5",
+      "no":"4",
       "name":"JavaScript",
       "category":["퍼블리싱","프론트엔드"],
       "level":"60"
     },
     {
-      "no":"6",
+      "no":"5",
       "name":"jQuery",
       "category":["퍼블리싱","프론트엔드"],
-      "level":"70"
+      "level":"65"
+    },
+    {
+      "no":"6",
+      "name":"Figma",
+      "category":"디자인",
+      "level":"85"
     },
     {
       "no":"7",
-      "name":"Photoshop",
-      "category":"디자인",
-      "level":"80"
+      "name":"Bootstrap",
+      "category":"퍼블리싱",
+      "level":"60"
     },
     {
       "no":"8",
@@ -479,19 +527,9 @@
     },
     {
       "no":"9",
-      "name":"Figma",
+      "name":"Photoshop",
       "category":"디자인",
       "level":"80"
-    }
-  ],
-  "contact":[
-    {
-      "name":"김지수",
-      "tel":"01066375153",
-      "email":"jbmyellow@naver.com",
-      "github":"https://github.com/kimjisu987/kimjisu987.git",
-      "address":"서울시 중랑구",
-      "hobby":["여행","게임","정리정돈"]
     }
   ]
 }

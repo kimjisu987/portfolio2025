@@ -3,230 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>김지수 포트폴리오</title>
+    <title>연습</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="shortcut icon" type="image/svg" href="./image/favicon.svg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-    <!-- 헤더 -->
-    <header>
-        <div class="gnbToggle"><i class="fa-solid fa-bars-staggered"></i></div>
-        <nav class="gnb">
-            <ul>
-                <li class="gnbOn" id="mainBottom"><i class="fa-solid fa-house"></i><span>home</span></li>
-                <li id="projectBottom"><i class="fa-solid fa-laptop-code"></i><span>project</span></li>
-                <li id="careerBottom"><i class="fa-solid fa-arrow-up-right-dots"></i><span>career</span></li>
-                <li id="skillBottom"><i class="fa-solid fa-fill-drip"></i><span>skill</span></li>
-                <li id="certifiBottom"><i class="fa-solid fa-crown"></i><span>certificate</span></li>
-                <li id="boardBottom"><i class="fa-regular fa-comments"></i><span>board</span></li>
-                <li id="mode"><input type="checkbox" name="modeToggle" id="modeToggle"><label for="modeToggle">&nbsp;</label>mode</li>
-            </ul>
-            <p class="gnbOnMove">&nbsp;</p>
-        </nav>
-    </header>
-
+    <!-- 메인 -->
     <main>
-        <!-- 메인 고정 -->
-        <div class="mainTop">
-            <h2 class="title"><strong>창의적인 퍼블리셔</strong>를 꿈꾸는 김지수입니다.</h2>
-            <div class="profile">
-                <img src="https://tamilnaducouncil.ac.in/wp-content/uploads/2020/04/dummy-avatar.jpg" alt="프로필">
-                <p>Kim Jisu</p>
-                <p class="mobileProfile">
-                    <span><i class="fa-solid fa-mobile-screen-button"></i> 010-6637-5153</span>
-                    <a href="https://yummy-feta-11c.notion.site/156f3a26009a803ea178e6d44e33faeb?pvs=4" class="notionLink" target="_blank">Notion</a>
-                </p>
-                <button type="button" class="toggle"><i class="fa-solid fa-caret-down"></i></button>
-                <div class="tooltip">
-                    <p>010-6637-5153</p>
-                    <p>jbmyellow@naver.com</p>
-                    <a href="https://yummy-feta-11c.notion.site/156f3a26009a803ea178e6d44e33faeb?pvs=4" class="notionLink" target="_blank">Notion</a>
+        <div class="sectionCon sectionCon1">
+            <!-- 프로필 -->
+            <section class="section section1" id="profileMain">
+                <!-- <div class="top">
+                    <div class="left">
+                        <img src="./image/profile.jpg" alt="프로필 사진">
+                    </div>
+                    <div class="right">
+                        <h2 class="name">김지수</h2>
+                        <p class="text">손이 빠른 <span>노력파</span> 퍼블리셔</p>
+                    </div>
                 </div>
+                <ul class="bottom">
+                    <li><span><i class="fa-regular fa-user"></i></span>1991.10.29</li>
+                    <li><span><i class="fa-regular fa-map"></i></span>서울 중랑</li>
+                    <li><span><i class="fa-regular fa-file-lines"></i></span>INFJ</li>
+                    <li><span><i class="fa-regular fa-envelope"></i></span>jbmyellow@naver.com</li>
+                </ul>
+                <button type="button"><span><i class="fa-solid fa-link"></i></span>Notion</button> -->
+            </section>
+            <!-- 프로젝트 -->
+            <section class="section section2">
+                <h2>PROJECT</h2>
+                <ul class="list" id="projectMain">
+                    <!-- <li><img src="./image/daegu-ad.gif" alt=""></li>
+                    <li><img src="./image/daegu.gif" alt=""></li>
+                    <li><img src="./image/dongne.gif" alt=""></li>
+                    <li><img src="./image/eslrenewal.gif" alt=""></li>
+                    <li><img src="./image/jecheon.gif" alt=""></li>
+                    <li><img src="./image/daegu-ad.gif" alt=""></li>
+                    <li><img src="./image/daegu.gif" alt=""></li> -->
+                </ul>
+                <button type="button" id="projectDetail" onclick="detailOpen(event)">
+                    View More <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+            </section>
+            <!-- 카드 -->
+            <section class="section3">
+                <div class="section left">
+                    <p class="count" id="projectCount"></p>
+                    <p class="tag"><span><i class="fa-solid fa-laptop-code"></i></span>Project</p>
+                </div>
+                <div class="section center">
+                    <p class="count" id="careerCount"></p>
+                    <p class="tag"><span><i class="fa-regular fa-address-card"></i></span>Duration</p>
+                </div>
+                <div class="section right">
+                    <p class="count" id="certiCount"></p>
+                    <p class="tag"><span><i class="fa-solid fa-award"></i></span>Certificate</p>
+                </div>
+            </section>
+        </div>
+        <div class="sectionCon sectionCon2">
+            <!-- 경력 -->
+            <section class="section section4">
+                <h2>CAREER</h2>
+                <ul class="list" id="careerMain">
+                    <!-- <li>
+                        <div class="left"><img src="./image/SLK-logo.svg" alt="스마트러닝코리아 로고"></div>
+                        <div class="center">
+                            <p class="company">회사명<span class="state">재직중</span></p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                        </div>
+                        <div class="right">퍼블리셔</div>
+                    </li> -->
+                </ul>
+                <button type="button" id="careerDetail" onclick="detailOpen(event)">
+                    View More <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+            </section>
+            <!-- 스킬 -->
+            <section class="section section5">
+                <h2>SKILL</h2>
+                <ul class="list" id="skillMain">
+                    <!-- <li>
+                        <p class="title">HTML5</p>
+                        <p class="percent">90%</p>
+                        <div class="progress">
+                            <p>&nbsp;</p>
+                            <p style="width: 90%;">&nbsp;</p>
+                        </div>
+                    </li> -->
+                </ul>
+                <button type="button" id="skillDetail" onclick="detailOpen(event)">
+                    View More <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+            </section>
+        </div>
+        <div class="sectionCon sectionCon3">
+            <!-- 상태 -->
+            <section class="section section6" id="alarmCon">
+                <p class="alarm"><i class="fa-regular fa-bell"></i></p>
+                <p class="name" id="myName"></p>
+                <button onclick="homeBtn(event);"><i class="fa-solid fa-house"></i></button>
+                <!-- <ul id="alarmMain"></ul> -->
+            </section>
+            <!-- 자격증 -->
+            <section class="section section7">
+                <h2>CERTIFICATE</h2>
+                <ul class="list" id="certiMain">
+                    <!-- <li>
+                        <p><i class="fa-solid fa-palette"></i></p>
+                        <div class="right">
+                            <p class="name">웹디자인기능사</p>
+                            <p class="date">2025-01-01</p>
+                        </div>
+                    </li> -->
+                </ul>
+                <button type="button" id="certiDetail" onclick="detailOpen(event)">
+                    View More <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+            </section>
+        </div>
+        <div class="sectionDetail projectDetail">
+            <div class="detailBox">
+                <h2>PROJECT</h2>
+                <ul class="projectCate">
+                    <li class="cateOn">ALL</li>
+                    <li>CO</li>
+                    <li>PERS</li>
+                    <li>TEAM</li>
+                </ul>
+                <ul class="projectCon" id="projectCon">
+                    <li>
+                        <div class="imgWrap">
+                            <img src="./image/daegu-ad.gif" alt="프로젝트 이미지">
+                            <p class="tag">UI/UX디자인</p>
+                            <p class="tag">퍼블리싱</p>
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">프로젝트명</p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                            <p class="percent">기여도 100%</p>
+                        </div>
+                        <div class="btnBox">
+                            <button type="button" class="notionBtn">정리노트</button>
+                            <button type="button">웹사이트</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgWrap">
+                            <img src="./image/daegu-ad.gif" alt="프로젝트 이미지">
+                            <p class="tag">UI/UX디자인</p>
+                            <p class="tag">퍼블리싱</p>
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">프로젝트명</p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                            <p class="percent">기여도 100%</p>
+                        </div>
+                        <div class="btnBox">
+                            <button type="button" class="notionBtn">정리노트</button>
+                            <button type="button">웹사이트</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgWrap">
+                            <img src="./image/daegu-ad.gif" alt="프로젝트 이미지">
+                            <p class="tag">UI/UX디자인</p>
+                            <p class="tag">퍼블리싱</p>
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">프로젝트명</p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                            <p class="percent">기여도 100%</p>
+                        </div>
+                        <div class="btnBox">
+                            <button type="button" class="notionBtn">정리노트</button>
+                            <button type="button">웹사이트</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgWrap">
+                            <img src="./image/daegu-ad.gif" alt="프로젝트 이미지">
+                            <p class="tag">UI/UX디자인</p>
+                            <p class="tag">퍼블리싱</p>
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">프로젝트명</p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                            <p class="percent">기여도 100%</p>
+                        </div>
+                        <div class="btnBox">
+                            <button type="button" class="notionBtn">정리노트</button>
+                            <button type="button">웹사이트</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="imgWrap">
+                            <img src="./image/daegu-ad.gif" alt="프로젝트 이미지">
+                            <p class="tag">UI/UX디자인</p>
+                            <p class="tag">퍼블리싱</p>
+                        </div>
+                        <div class="detailWrap">
+                            <p class="title">프로젝트명</p>
+                            <p class="date">2025-01-01 ~ 2025-01-01</p>
+                            <p class="percent">기여도 100%</p>
+                        </div>
+                        <div class="btnBox">
+                            <button type="button" class="notionBtn">정리노트</button>
+                            <button type="button">웹사이트</button>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <!-- 메인 -->
-        <div class="sectionBottom mainBottom">
-            <div class="projectBox">
-                <h3>Project <button type="button" data-section="projectBottom"></button></h3>
-                <ul id="projectList">
-                    <!-- <li>
-                        <p class="projectTitle">
-                            제목
-                            <span class="projectPosition">역할</span>
-                        </p>
-                        <ul class="projectSkill">
-                            <li>스킬셋</li>
-                            <li>스킬셋</li>
-                            <li>스킬셋</li>
-                            <li>스킬셋</li>
-                        </ul>
-                        <div class="projectUser">
-                            <ul>
-                                <li class="my">PUB</li>
-                                <li>BACK</li>
-                            </ul>
-                            <button type="button" class="toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                            <div class="tooltip">
-                                기여도 100%
+        <div class="sectionDetail careerDetail">
+            <div class="detailBox">
+                <h2>CAREER</h2>
+                <ul class="timeline" id="timeline">
+                    <li>
+                        <p class="date">2024~2025</p>
+                        <p class="name">회사명</p>
+                    </li>
+                    <li>
+                        <p class="date">2024~2025</p>
+                        <p class="name">회사명</p>
+                    </li>
+                    <li>
+                        <p class="date">2024~2025</p>
+                        <p class="name">회사명</p>
+                    </li>
+                    <li>
+                        <p class="date">2024~2025</p>
+                        <p class="name">회사명</p>
+                    </li>
+                    <li>
+                        <p class="date">2024~2025</p>
+                        <p class="name">회사명</p>
+                    </li>
+                </ul>
+                <ul class="careerCon" id="careerCon">
+                    <li>
+                        <div class="img">
+                            <img src="./image/SLK-logo.svg" alt="스마트러닝코리아 로고">
+                            <p class="state">재직중</p>
+                        </div>
+                        <div class="text">
+                            <div class="textTop">
+                                <p class="company">회사명</p>
+                                <p class="position">퍼블리셔</p>
+                            </div>
+                            <div class="textBottom">
+                                2025-01-01 ~ 2025-01-01<span>(1개월)</span>
                             </div>
                         </div>
-                    </li> -->
-                </ul>
-            </div>
-            <div class="skillBox">
-                <h3>Skill <button type="button" data-section="skillBottom"></button></h3>
-                <ul id="skillList">
-                    <!-- <li>
-                        <p class="skillLang">HTML5</p>
-                        <p class="skillProgress"><span style="width:30%"></span></p>
-                        <p class="skillPercent">30%</p>
-                    </li> -->
-                </ul>
-            </div>
-            <div class="boardBox">
-                <h3>Board <button type="button" data-section="boardBottom"></button></h3>
-                <div>
-                    <ul>
-                        <li>준비중입니다.</li>
-                    </ul>
-                    <!-- <ul>
-                        <li>
-                            <p class="boardTitle">열심히 하는 모습 보기 좋아요 열심히 하는 모습 보기 좋아요</p>
-                            <span>작성자</span>
-                        </li>
-                        <li>
-                            <p class="boardTitle">열심히 하는 모습 보기 좋아요</p>
-                            <span>작성자</span>
-                        </li>
-                    </ul> -->
-                </div>
-            </div>
-            <div class="careerBox">
-                <h3>Career <button type="button" data-section="careerBottom"></button></h3>
-                <ul id="careerList">
-                    <!-- <li>
-                        <p class="careerMonths">04</p>
-                        <div>
-                            <p class="careerCompany">스마트러닝코리아<span>퍼블리셔</span></p>
-                            <p class="careerDate">2024.10 - 2025.01</p>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="./image/SLK-logo.svg" alt="스마트러닝코리아 로고">
                         </div>
-                        <p class="careerState">재직중</p>
-                    </li> -->
-                </ul>
-            </div>
-            <div class="certifiBox">
-                <h3>Certification <button type="button" data-section="certifiBottom"></button></h3>
-                <ul id="certifiList">
-                    <!-- <li>
-                        <p class="certifiName">웹디자인기능사</p>
-                        <p class="certifiDate">2024.09</p>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-
-        <!-- 프로젝트 -->
-        <div class="sectionBottom projectBottom">
-            <p class="sectionTitle">Project</p>
-            <ul class="projectCate">
-                <li class="cateOn"><button>ALL</button></li>
-                <li><button>COMPANY</button></li>
-                <li><button>PERSONAL</button></li>
-                <li><button>TEAM</button></li>
-            </ul>
-            <ul id="projectMainList">
-                <!-- <li>
-                    <p class="projectContribution">기여도</p>
-                    <img src="" alt="">
-                    <div>
-                        <div class="projectText">
-                            <p class="projectTitle">프로젝트이름</p>
-                            <p class="projectDate">기간</p>
-                            <p class="projectPosition">포지션</p>
+                        <div class="text">
+                            <div class="textTop">
+                                <p class="company">회사명</p>
+                                <p class="position">퍼블리셔</p>
+                            </div>
+                            <div class="textBottom">
+                                2025-01-01 ~ 2025-01-01 <span>(1개월)</span>
+                            </div>
                         </div>
-                        <a href="">Notion</a>
-                    </div>
-                    <button class="projectLink">link</button>
-                </li> -->
-            </ul>
-        </div>
-
-        <!-- 경력 -->
-        <div class="sectionBottom careerBottom">
-            <p class="sectionTitle">Career</p>
-            <ul id="careerMainList">
-                <!-- <li>
-                    <div class="careerCompany">
-                        <p class="careerTitle"></p>
-                        <p class="careerDate"></p>
-                        <p class="careerPosition"></p>
-                    </div>
-                    <div class="careerMore">
-                        <p class="careerDetail"></p>
-                    </div>
-                    <img src="logo" alt="">
-                </li> -->
-            </ul>
-        </div>
-
-        <!-- 스킬 -->
-        <div class="sectionBottom skillBottom">
-            <p class="sectionTitle">Skill</p>
-            <div class="skillTop">
-                <ul id="skillMainList">
-                    <!-- <li>
-                        <p class="skillLevel">
-                            <span style="height:90%">&nbsp;</span>
-                            <p class="skillPer">90%</p>
-                        </p>
-                        <p class="skillName">${skill.name}</p>
-                    </li> -->
-                </ul>
-                <ul id="skillMainList2">
-                    <!-- <li>
-                        <div class="circleBox">
-                            <span class="percent"></span>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="./image/SLK-logo.svg" alt="스마트러닝코리아 로고">
                         </div>
-                        <p class="skillName"></p>
-                    </li> -->
+                        <div class="text">
+                            <div class="textTop">
+                                <p class="company">회사명</p>
+                                <p class="position">퍼블리셔</p>
+                            </div>
+                            <div class="textBottom">
+                                2025-01-01 ~ 2025-01-01 <span>(1개월)</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="./image/SLK-logo.svg" alt="스마트러닝코리아 로고">
+                        </div>
+                        <div class="text">
+                            <div class="textTop">
+                                <p class="company">회사명</p>
+                                <p class="position">퍼블리셔</p>
+                            </div>
+                            <div class="textBottom">
+                                2025-01-01 ~ 2025-01-01 <span>(1개월)</span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
-
-        <!-- 자격증 -->
-        <div class="sectionBottom certifiBottom">
-            <p class="sectionTitle">Certificate</p>
-            <ul id="certifiMainList">
-                <li>
-                    <p class="icon"><i class="fa-solid fa-paste"></i></p>
-                    <p class="certifiName">웹디자인기능사</p>
-                    <p class="certifiDate">2021-12</p>
-                    <p class="certifiIssuer">한국생산성본부</p>
-                    <div class="certifiLangs"></div>
-                </li>
-            </ul>
+        <div class="sectionDetail skillDetail">
+            <div class="detailBox">
+                <h2>SKILL</h2>
+                <ul class="skillCon" id="skillCon">
+                    <li>
+                        <div class="piecontainer"> 
+                            <div class="piechart" style="background-image: conic-gradient(#FFDA74 calc(365 * 0.${skill.level}deg) , transparent 0)"></div>
+                            <div class="piecover">&nbsp;</div>
+                            <div class="skillName">
+                                <p class="level">${skill.level}%</p>
+                                <p>${skill.name}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <!-- 게시판 -->
-        <div class="sectionBottom boardBottom">
-            <p class="sectionTitle">Board</p>
-            <div class="boardWrap">
-                <table id="boardList">
-                    <caption>자유게시판</caption>
-                    <tr>
-                        <th>내용</th>
-                        <th>작성자</th>
-                        <th>작성일</th>
-                    </tr>
-                    <tr>
-                        <td class="boardDetail">준비중입니다.</td>
-                        <td class="boardUser">&nbsp;</td>
-                        <td class="boardDate">&nbsp;</td>
-                    </tr>
-                </table>
+        <div class="sectionDetail certiDetail">
+            <div class="detailBox">
+                <h2>CERTIFICATE</h2>
+                <ul class="certiCate">
+                    <li class="cateOn">ALL</li>
+                    <li>DESIGN</li>
+                    <li>OA</li>
+                    <li>ETC</li>
+                </ul>
+                <ul class="certiCon" id="certiCon">
+                    <li>
+                        <div class="top">
+                            <p class="name">자격증명</p>
+                            <p class="date">2025-01-01</p>
+                        </div>
+                        <p class="detail">설명</p>
+                        <p class="issuer">발행처</p>
+                        <i class="icon fa-solid fa-palette"></i>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>

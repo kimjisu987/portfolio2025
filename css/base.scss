@@ -2,31 +2,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
-$mainColor: #FFDA74;
-$backColor: #F6F6F6;
-$fontColor: #000000;
-$borderColor: #CCCCCC;
-$subFont: #777777;
+$backColor: #F5F6FA;
+$borderColor: #B8BCD5;
+$fontColor: #312F4D;
+$pointColor: #4644D1;
+$redColor: #FF2D2D;
 $whiteColor: #FFFFFF;
+$boxShadow: 0 0 4px rgba(0, 8, 99, 0.5);
+
+$bigTitle: 2rem;
+$miniTitle: 1.5rem;
+$miniText: 0.88rem;
 
 // 기본 색상 설정
 :root {
-	--mainColor: #{$mainColor};
 	--backColor: #{$backColor};
-	--fontColor: #{$fontColor};
 	--borderColor: #{$borderColor};
-	--subFont: #{$subFont};
+	--fontColor: #{$fontColor};
+	--pointColor: #{$pointColor};
+	--redColor: #{$redColor};
 	--whiteColor: #{$whiteColor};
+	--boxShadow: #{$boxShadow};
 }
 
 // 다크 모드 색상 설정
 [data-theme="dark"] {
-	--mainColor: #FFDA74;
-	--backColor: #333333;
-	--fontColor: #FFFFFF;
-	--borderColor: #777777;
-	--subFont: #CCCCCC;
-	--whiteColor: #000000;
+	--backColor: #312F4D;
+	--borderColor: #B8BCD5;
+	--fontColor: #F5F6FA;
+	--pointColor: #6765FF;
+	--redColor: #FF6C6C;
+	--whiteColor: #121212;
+	--boxShadow: 0 0 4px rgba(245, 246, 250, 0.5);
 }
 
 $fontFamily: "Noto Sans KR", "맑은고딕", serif;
@@ -84,7 +91,7 @@ hr {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 1px solid #cccccc;
+	border-top: 1px solid var(--backColor);
 	margin: 1em 0;
 	padding: 0;
 }
@@ -302,14 +309,123 @@ h1, h2, h3 {
             }
         }
         @else if $size == 'tablet' {
-            @media screen and (min-width: 768px) and (max-width: 1280px) {
-                @content;
-            }
-        }
-        @else if $size == 'pc' {
-            @media screen and (min-width: 1280px) and (max-width: 1920px) {
+            @media screen and (min-width: 768px) and (max-width: 1300px) {
                 @content;
             }
         }
     }
+}
+
+// 공통 미니 제목
+@mixin miniTitle {
+	font-size: 1.5rem; font-weight: 700;
+}
+
+// 날짜 미니 공통
+@mixin dateText {
+	font-size: 0.88rem; font-weight: normal;
+	color: var(--borderColor);
+}
+
+// 백그라운드 카드
+@mixin card($background : var(--backColor)) {
+	background: $background;
+	border-radius: 1rem;
+	padding: 1rem;
+}
+
+// 미니태그
+@mixin miniTag {
+	font-size: 0.88rem;
+	padding: 0.2rem 0.4rem;
+	background: var(--backColor);
+	border-radius: 0.5rem;
+	font-weight: 500;
+	display: flex; gap: 0.5rem; align-items: center;
+	justify-content: center;
+}
+
+// flex 중앙 정렬
+@mixin flexCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+// flex 가로 정렬
+@mixin flexX {
+    display: flex; gap: 1rem;
+}
+// flex 세로 정렬
+@mixin flexY {
+    display: flex; flex-direction: column; gap: 1rem;
+}
+
+// 버튼 100%
+@mixin button100 {
+	background: var(--pointColor);
+	color: var(--whiteColor);
+	border-radius: 0.5rem;
+	line-height: 250%;
+	display: flex; gap: 0.5rem; align-items: center;
+	justify-content: center;
+	transition: 0.3s;
+	font-weight: 700;
+	.fa-arrow-right {
+		transform: rotate(-45deg);
+	}
+	&:hover {
+		filter: brightness(1.1);
+		scale: 1.05;
+		.fa-arrow-right {
+			animation: buttonArrow 0.3s linear;
+		}
+	}
+	@keyframes buttonArrow {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(-45deg);}
+	}
+}
+
+// 메인 공통 제목
+@mixin h2Title {
+	position: relative;
+	font-size: $bigTitle; font-weight: 700;
+	text-indent: 1rem;
+	&::before {
+		position: absolute; left: 0; top: 50%;
+		transform: translateY(-50%);
+		content: "";
+		display: block;
+		width: 0.5rem; height: 2rem;
+		border-radius: 0 0.5rem 0.5rem 0;
+		background: var(--pointColor);
+	}
+}
+
+// 미니 카테고리
+@mixin miniCate {
+	@include flexX;
+	width: min-content;
+	li {
+		position: relative;
+		flex: 1; gap: 0.5rem;
+		border-radius: 0.5rem;
+		padding: 0.2rem 1rem;
+		background: transparent;
+		border: 1px solid transparent;
+		cursor: pointer;
+		transition: 0.3s;
+		&.cateOn {
+			background: var(--backColor);
+			border: 1px solid var(--borderColor);
+			&::after {
+				content: "";
+				display: block;
+				position: absolute; right: 0.2rem; top: 0.2rem;
+				width: 0.4rem; height: 0.4rem;
+				border-radius: 50%;
+				background: var(--pointColor);
+			}
+		}
+	}
 }

@@ -1,366 +1,398 @@
-const gnb = document.querySelectorAll('.gnb > ul > li:not(#mode)');
-
-gnb.forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let targetId = item.id;
-
-        document.querySelectorAll('.sectionBottom').forEach(section => {
-            section.style.display = 'none';
-        });
-
-        const targetElement = document.querySelector(`.${targetId}`);
-
-        if (targetElement.classList.contains("mainBottom")) {
-            targetElement.style.display = 'grid';
-        } else {
-            targetElement.style.display = 'block';
-        }
-
-        gnb.forEach(gnbItem => {
-            gnbItem.classList.remove('gnbOn');
-        });
-        item.classList.add('gnbOn');
-    });
-});
-
-const buttons = document.querySelectorAll('.sectionBottom button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-section');
-        const targetItem = document.querySelector(`#${targetId}`);
-        targetItem.click();
-    });
-});
-
-
 fetch('./data/kimjisu.json')
     .then(response => response.json())
     .then(datas => {
 
-    // 카테고리 버튼 클릭 시 이벤트 처리
-    document.querySelectorAll('.projectCate li').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const category = e.target.textContent.toLowerCase(); // 버튼 텍스트로 카테고리 추출
-            filterProjects(category);
-            
-            // 카테고리 버튼의 활성화 상태 처리
-            document.querySelectorAll('.projectCate li').forEach(btn => btn.classList.remove('cateOn'));
-            e.target.parentElement.classList.add('cateOn');
-        });
-    });
+        // --------------------------------------------------------------------------------------------------
+        // 프로필
+        const myName = document.getElementById('myName');
+        const profileList = document.getElementById('profileMain');
+        const profileShow = datas.profile;
+        profileList.innerHTML = '';
 
-    // 프로젝트 필터링 함수
-    function filterProjects(category) {
-        const projectMainList = document.getElementById('projectMainList');
-        projectMainList.innerHTML = ''; // 기존 프로젝트 리스트 비우기
-        
-        const filteredProjects = category === 'all' 
-            ? datas.project.sort((a, b) => b.no - a.no)
-            : datas.project.filter(project => project.cate === category).sort((a, b) => b.no - a.no); // 'ALL'이면 전체, 아니면 선택된 카테고리만
-        
-        filteredProjects.forEach(project => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <p class="projectContribution">${project.contribution}</p>
-                <img src="./image/${project.img}" alt="${project.name}">
-                <div>
-                    <div class="projectText">
-                        <p class="projectTitle">${project.name}</p>
-                        <p class="projectDate">${project.startdate} ~ ${project.enddate}</p>
-                        <p class="projectPosition">${project.position.join(', ')}</p>
+        profileShow.forEach(profile => {
+            myName.innerHTML = `${profile.nameE}`;
+            const profileHTML = `
+                <div class="top">
+                    <div class="left">
+                        <img src="./image/profile.jpg" alt="프로필 사진">
                     </div>
-                    <a href="${project.notion}" class="projectNotion" title="노션 제작 노트 연결" target="_blank">Notion</a>
-                </div>                        
-                <a href="${project.website}" class="projectLink" title="배포사이트 연결" target="_blank">Website</a>
-            `;
-            projectMainList.appendChild(li);
-        });
-    }
-
-    // 초기 로딩 시 전체 프로젝트를 보여줌
-    filterProjects('all');
-
-        // 프로젝트
-        const projectList = document.getElementById('projectList');
-        const sortProject = datas.project.sort((a, b) => b.no - a.no);
-        const showProject = sortProject.slice(0, 4);
-
-        showProject.forEach(project => {
-        const li = document.createElement('li');
-        const skills = project.mainlang.map(lang => `<li>${lang}</li>`).join('');
-        const positionMemos = project.positionMemo.map(memo => `<li class="my">${memo}</li>`).join('');
-
-            li.innerHTML = `
-                <p class="projectTitle">
-                    ${project.name}
-                    <span class="projectPosition">${project.position.join(', ')}</span>
-                </p>
-                <ul class="projectSkill">
-                    ${skills}
-                </ul>
-                <div class="projectUser">
-                    <ul>
-                        ${positionMemos}
-                    </ul>
-                    <button type="button" class="toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-                    <div class="tooltip">
-                        기여도 ${project.contribution}
+                    <div class="right">
+                        <h2 class="name">${profile.name}</h2>
+                        <p class="text">손이 빠른 <span>노력파</span> 퍼블리셔</p>
                     </div>
                 </div>
+                <ul class="bottom">
+                    <li><span><i class="fa-regular fa-user"></i></span>${profile.date}</li>
+                    <li><span><i class="fa-regular fa-map"></i></span>${profile.address}</li>
+                    <li><span><i class="fa-regular fa-file-lines"></i></span>${profile.mbti}</li>
+                    <li><span><i class="fa-regular fa-envelope"></i></span>${profile.email}</li>
+                </ul>
+                <button type="button" id="notionLink" onclick="window.open('${profile.notion}', '_blank');"><span><i class="fa-solid fa-link"></i></span>Notion</button>
+            `;
+            profileList.innerHTML += profileHTML;
+        });
+
+        // --------------------------------------------------------------------------------------------------
+        // 카드 - 프로젝트 수
+        const cardList1 = document.getElementById('projectCount');
+        const projectCount = datas.project.length;
+        cardList1.innerHTML = projectCount;
+
+        // 카드 - 경력 개월수
+        const cardList2 = document.getElementById('careerCount');
+        let careerCount = 0;
+        
+        // position이 "퍼블리셔" 또는 "디자이너"인 데이터만 계산
+        datas.experience.forEach(experience => {
+            if (experience.position == "퍼블리셔" || experience.position == "디자이너") {
+                const startDate = new Date(experience.startdate + "-01"); // "YYYY-MM" 형식을 Date로 변환
+                const endDate = experience.enddate ? new Date(experience.enddate + "-01") : new Date(); // 종료일이 없으면 현재 날짜 사용
+                const months = ((endDate.getFullYear() - startDate.getFullYear()) * 12) + (endDate.getMonth() - startDate.getMonth());
+                careerCount += months; // 누적
+            }
+        });
+        cardList2.innerHTML = careerCount;
+
+        // 카드 - 자격증 수
+        const cardList3 = document.getElementById('certiCount');
+        const certiCount = datas.certificate.length;
+        cardList3.innerHTML = certiCount;
+
+        // --------------------------------------------------------------------------------------------------
+        // 프로젝트
+        const projectList = document.getElementById('projectMain');
+        const projectSort = datas.project.sort((a, b) => b.no - a.no);
+        const projectShow = projectSort.slice(0, 6);
+        projectList.innerHTML = '';
+
+        projectShow.forEach(project => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <img src="./image/${project.img}" alt="${project.name} 이미지">
             `;
             projectList.appendChild(li);
         });
 
-        // 스킬
-        function renderSkillList(skillListElement, skillData, isMainList) {
-            skillListElement.innerHTML = '';  // 기존 내용 비우기
+        if (projectShow.length > 0) {
+            const firstProject = projectShow[0]; // 첫 번째 데이터
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <img src="./image/${firstProject.img}" alt="${firstProject.name} 이미지">
+            `;
+            projectList.appendChild(li);
+        };
 
-            skillData.forEach(skill => {
-                const li = document.createElement('li');
+        // 카테고리 버튼 클릭 시 이벤트 처리
+        document.querySelectorAll('.projectCate li').forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.textContent.trim().toLowerCase();
+                filterProjects(category);
                 
-                // isMainList 값에 따른 처리
-                if (isMainList === 1) {  // 메인 상단 리스트의 경우
-                    li.innerHTML = `
-                        <p class="skillLevel">
-                            <span style="height:${skill.level}%">&nbsp;</span>
-                            <p class="skillPer">${skill.level}%</p>
-                        </p>
-                        <p class="skillName">${skill.name}</p>
-                    `;
-                } else if (isMainList === 2) {  // 다른 메인 리스트의 경우
-                    const categoryHtml = Array.isArray(skill.category)
-                        ? skill.category.map(category => `<p class="skillCate">${category}</p>`).join('')  // category가 배열일 경우
-                        : `<p class="skillCate">${skill.category}</p>`;  // category가 문자열일 경우
-
-                    li.innerHTML = `
-                        <div class="piecontainer"> 
-                            <div class="piechart" style="background-image: conic-gradient(#FFDA74 calc(365 * 0.${skill.level}deg) , transparent 0)"></div>
-                            <div class="piecover">&nbsp;</div>
-                            <div class="skillName">${skill.name}</div>
-                        </div>
-                        <div class="cateContainer">
-                            <p class="skillPer">${skill.level}%</p>
-                            ${categoryHtml}
-                        </div>
-                    `;
-                } else {  // 일반 리스트의 경우
-                    li.innerHTML = `
-                        <p class="skillLang">${skill.name}</p>
-                        <p class="skillProgress"><span style="width:${skill.level}%"></span></p>
-                        <p class="skillPercent">${skill.level}%</p>
-                    `;
-                }
-
-                skillListElement.appendChild(li);
+                document.querySelectorAll('.projectCate li').forEach(btn => btn.classList.remove('cateOn'));
+                button.classList.add('cateOn');
             });
+        });
 
-            // 동적으로 생성된 .percentText 요소들에 대해 스타일 적용
-            document.querySelectorAll('.percentText').forEach(function(percentText) {
-                var data = percentText.getAttribute('data-percent');
-                if (data !== null && !isNaN(data)) {
-                    var heightValue = (parseFloat(data)) + "%";  // height 값 계산
-                    var circleBox = percentText.closest('.circleBox');
-                    if (circleBox) {
-                        var water = circleBox.querySelector('.water');
-                        if (water) {
-                            water.style.height = heightValue;  // .water 요소의 높이를 설정
-                        }
-                    }
-                }
-            });
-        }
-
-        // 메인 상단 스킬
-        const skillMainList = document.getElementById('skillMainList');
-        if (skillMainList) {
-            const sortSkillMain = datas.skill;
-            renderSkillList(skillMainList, sortSkillMain, 1);  // 첫 번째 메인 리스트
-        }
-
-        // 메인 스킬
-        const skillMainList2 = document.getElementById('skillMainList2');
-        if (skillMainList2) {
-            const sortSkillMain2 = datas.skill;
-            renderSkillList(skillMainList2, sortSkillMain2, 2);  // 두 번째 메인 리스트
-        }
-
-        // 스킬 리스트
-        const skillList = document.getElementById('skillList');
-        if (skillList) {
-            const sortSkill = datas.skill;
-            renderSkillList(skillList, sortSkill, 3);  // 일반 리스트
-        }
-
-        // 공통 자격증 처리 함수
-        function renderCertifiList(certifiListElement, certifiData, isMainList) {
-            certifiListElement.innerHTML = '';  // 기존 리스트 비우기
-
-            certifiData.forEach(certificate => {
+        // 프로젝트 필터링 함수
+        function filterProjects(category) {
+            const projectCon = document.getElementById('projectCon');
+            projectCon.innerHTML = ''; // 기존 프로젝트 리스트 비우기
+        
+            const projectCate = category === 'all' 
+                ? datas.project.sort((a, b) => b.no - a.no)
+                : datas.project.filter(project => project.cate.toLowerCase() === category).sort((a, b) => b.no - a.no);
+            
+            projectCate.forEach(project => {
                 const li = document.createElement('li');
-
-                if (isMainList) {
-                    // 메인 리스트의 경우
-                    const langHtml = Array.isArray(certificate.langs)
-                        ? certificate.langs.map(langs => `<p class="skillCate">${langs}</p>`).join('')  // category가 배열일 경우
-                        : `<p class="skillCate">${certificate.langs}</p>`;  // category가 문자열일 경우
-
-                    li.innerHTML = `
-                        <p class="icon"><i class="fa-solid fa-paste"></i></p>
-                        <p class="certifiName">${certificate.name}</p>
-                        <p class="certifiDate">${certificate.date}</p>
-                        <p class="certifiIssuer">${certificate.issuer}</p>
-                        <div class="certifiLangs">${langHtml}</div>
-                    `;
-                } else {
-                    // 일반 리스트의 경우
-                    li.innerHTML = `
-                        <p class="certifiName">${certificate.name}</p>
-                        <p class="certifiDate">${certificate.date}</p>
-                    `;
-                }
-                // 일반 리스트일 때만 certifiHtml 추가
-                certifiListElement.appendChild(li);
-            });
-
-            // 일반 리스트의 경우에만 <li class="listBack">&nbsp;</li> 추가
-            if (!isMainList) {
-                const certifiHtml = `<li class="listBack">&nbsp;</li>`;
-                certifiListElement.innerHTML += certifiHtml;
-            }
-        }
-
-        // 메인 자격증
-        const certifiMainList = document.getElementById('certifiMainList');
-        const sortCertifiMain = datas.certificate.sort((a, b) => b.no - a.no);
-        renderCertifiList(certifiMainList, sortCertifiMain, true);  // 메인 리스트는 `true`를 전달
-
-        // 자격증
-        const certifiList = document.getElementById('certifiList');
-        const sortCertifi = datas.certificate.sort((a, b) => b.no - a.no);  // 자격증을 no 기준으로 내림차순 정렬
-        const showCertifi = sortCertifi.slice(0, 8);  // 최신 자격증 8개 가져오기
-        renderCertifiList(certifiList, showCertifi, false);  // 일반 리스트는 `false`를 전달
-
-        // 공통 경력 처리 함수
-        function renderCareerList(careerListElement, careerData, isMainList) {
-            careerListElement.innerHTML = '';  // 기존 리스트 비우기
-
-            careerData.forEach(experience => {
-                const li = document.createElement('li');
-
-                // 경력 시작일과 종료일을 날짜 형식으로 변환
-                const startDate = new Date(experience.startdate);
-                const endDate = experience.enddate ? new Date(experience.enddate) : new Date();  // 종료일이 없는 경우 현재 날짜 - 재직중
-
-                // 월 차이 계산 (재직 중인 경우 끝날 때까지의 차이)
-                let months = ((endDate.getFullYear() - startDate.getFullYear()) * 12) + endDate.getMonth() - startDate.getMonth();
-
-                // 년, 월로 분리
-                const years = Math.floor(months / 12);
-                const remainingMonths = months % 12 + 1;
-
-                // 경력 기간을 '1년 1개월' 형식으로 표시
-                const experienceDuration = `${years > 0 ? years + '년' : ''} ${remainingMonths > 0 ? remainingMonths + '개월' : ''}`.trim();
-
-                // `careerMainList`와 `careerList` 각각의 다른 콘텐츠를 반영
-                if (isMainList) {
-                    // 메인 리스트의 경우
-                    li.innerHTML = `
-                        <div class="careerCompany">
-                            <p class="careerTitle">${experience.company}</p>
-                            <p class="careerDate">${experience.startdate} ~ ${experience.enddate || '재직중'} (${experienceDuration})</p>
-                            <p class="careerPosition">${experience.position}</p>
-                        </div>
-                        <div class="careerMore">
-                            <p class="careerDetail">${experience.detail}</p>
-                        </div>
-                        <img src="./image/${experience.logo}" alt="">
-                    `;
-                } else {
-                    // 일반 리스트의 경우
-                    li.innerHTML = `
-                        <p class="careerMonths">${months < 10 ? '0' + months : months}</p>
-                        <div>
-                            <p class="careerCompany"><span class="company">${experience.company}</span><span class="position">${experience.position}</span></p>
-                            <p class="careerDate">${experience.startdate} ~ ${experience.enddate || '재직중'}</p>
-                        </div>
-                        ${experience.relation === "1" ? `<p class="careerState">재직중</p>` : ''}
-                    `;
-                }
-
-                careerListElement.appendChild(li);
+                const positionHtml = Array.isArray(project.position)
+                    ? project.position.map(pos => `<p class="tag">${pos}</p>`).join('')  // 배열일 경우
+                    : `<p class="tag">${project.position}</p>`;  // 문자열일 경우
+        
+                li.innerHTML = `
+                    <div class="imgWrap">
+                        <img src="./image/${project.img}" alt="${project.name} 이미지">
+                        ${positionHtml}
+                    </div>
+                    <div class="detailWrap">
+                        <p class="title">${project.name}</p>
+                        <p class="date">${project.startdate} ~ ${project.enddate}</p>
+                        <p class="percent">기여도 <span class="number">${project.contribution}<span></p>
+                    </div>
+                    <div class="btnBox">
+                        <a href="${project.notion}" class="notionBtn">정리노트</a>
+                        <a href="${project.website}">웹사이트</a>
+                    </div>
+                `;
+                projectCon.appendChild(li);
             });
         }
+    
+        // 초기 로딩 시 전체 프로젝트를 보여줌
+        filterProjects('all');
 
-        // 메인 경력
-        const careerMainList = document.getElementById('careerMainList');
-        const sortcareerMain = datas.experience.sort((a, b) => b.no - a.no);
-        renderCareerList(careerMainList, sortcareerMain, true);  // 메인 리스트는 `true`를 전달
-
+        // --------------------------------------------------------------------------------------------------
         // 경력
-        const careerList = document.getElementById('careerList');
-        const sortCareer = datas.experience.sort((a, b) => b.no - a.no);  // 경력도 no 기준으로 내림차순 정렬
-        const showCareer = sortCareer.slice(0, 5);  // 최신 경력 5개 가져오기
-        renderCareerList(careerList, showCareer, false);  // 일반 리스트는 `false`를 전달
+        const careerList = document.getElementById('careerMain');
+        const careerCon = document.getElementById('careerCon');
+        const timeline = document.getElementById('timeline');
+        const careerSort = datas.experience.sort((a, b) => b.no - a.no);
+        const careerShow = careerSort.slice(0, 8);
+        const careerShow5 = careerSort.slice(0, 5);
+        careerList.innerHTML = '';
+        careerCon.innerHTML = '';
+        timeline.innerHTML = '';
+
+        careerShow.forEach(career => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div class="left"><img src="./image/${career.logo}" alt="${career.company} 로고"></div>
+                <div class="center">
+                    <p class="company">${career.company}${career.relation == "1" ? `<span class="state">재직중</span>` : ''}</p>
+                    <p class="date">${career.startdate} ~ ${career.enddate || ''}</p>
+                </div>
+                <div class="right">${career.position}</div>
+            `;
+            careerList.appendChild(li);
+        });
+
+        careerSort.forEach(career => {
+            const li = document.createElement('li');
+            // 경력 시작일과 종료일을 날짜 형식으로 변환
+            const startDate = new Date(career.startdate);
+            const endDate = career.enddate ? new Date(career.enddate) : new Date();  // 종료일이 없는 경우 현재 날짜 - 재직중
+
+            // 월 차이 계산 (재직 중인 경우 끝날 때까지의 차이)
+            let months = ((endDate.getFullYear() - startDate.getFullYear()) * 12) + endDate.getMonth() - startDate.getMonth();
+
+            // 년, 월로 분리
+            const years = Math.floor(months / 12);
+            const Month = months % 12 + 1;
+
+            // 경력 기간을 '1년 1개월' 형식으로 표시
+            const careerDuration = `${years > 0 ? years + '년' : ''} ${Month > 0 ? Month + '개월' : ''}`.trim();
+            li.innerHTML = `
+                <div class="img">
+                    <img src="./image/${career.logo}" alt="${career.company} 로고">
+                    ${career.relation == "1" ? `<p class="state">재직중</p>` : ''}
+                </div>
+                <div class="text">
+                    <div class="textTop">
+                        <p class="company">${career.company}</p>
+                        <p class="position">${career.position}</p>
+                    </div>
+                    <div class="textBottom">
+                        ${career.startdate} ~ ${career.enddate || '재직중'}
+                        <span>(${careerDuration})</span>
+                    </div>
+                </div>
+            `;
+            careerCon.appendChild(li);
+        });
+
+        careerShow5.forEach(career => {
+            const li = document.createElement('li');
+            const startYear = career.startdate ? career.startdate.slice(0, 4) : "N/A";
+            const endYear = career.enddate ? career.enddate.slice(0, 4) : "현재";
+            li.innerHTML = `
+                <p class="date">${startYear} ~ ${endYear}</p>
+                <p class="name">${career.company}</p>
+            `;
+            timeline.appendChild(li);
+        });
+
+        // --------------------------------------------------------------------------------------------------
+        // 스킬
+        const skillList = document.getElementById('skillMain');
+        const skillCon = document.getElementById('skillCon');
+        const skillSort = datas.skill;
+        const skillShow = skillSort.slice(0, 6);
+        skillList.innerHTML = '';
+        skillCon.innerHTML = '';
+
+        skillShow.forEach(skill => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <p class="title">${skill.name}</p>
+                <p class="percent">${skill.level}%</p>
+                <div class="progress">
+                    <p>&nbsp;</p>
+                    <p style="width: ${skill.level}%;">&nbsp;</p>
+                </div>
+            `;
+            skillList.appendChild(li);
+        });
+
+        skillSort.forEach(skill => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div class="piecontainer"> 
+                    <div class="piechart" style="background-image: conic-gradient(var(--pointColor) calc(365 * 0.${skill.level}deg) , transparent 0)"></div>
+                    <div class="piecover">&nbsp;</div>
+                    <div class="skillName">
+                        <p class="level">${skill.level}%</p>
+                        <p>${skill.name}</p>
+                    </div>
+                </div>
+            `;
+            skillCon.appendChild(li);
+        });
+
+        // --------------------------------------------------------------------------------------------------
+        // 자격증
+        const certiList = document.getElementById('certiMain');
+        const certiSort = datas.certificate.sort((a, b) => b.no - a.no);
+        const certiShow = certiSort.slice(0, 8);
+        certiList.innerHTML = '';
+
+        certiShow.forEach(certi => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <p><i class="fa-solid ${certi.cate == "design" ? `fa-palette` : certi.cate == "OA" ? `fa-file-lines` : certi.catedetail == "eco" ? `fa-comments-dollar` : certi.catedetail == "car" ? "fa-car" : ""}"></i></p>
+                <div class="right">
+                    <p class="name">${certi.name}</p>
+                    <p class="date">${certi.date}</p>
+                </div>
+            `;
+            certiList.appendChild(li);
+        });
+
+        // 카테고리 버튼 클릭 시 이벤트 처리
+        document.querySelectorAll('.certiCate li').forEach(button => {
+            button.addEventListener('click', () => {
+                const cate = button.textContent.trim().toLowerCase();
+                filterCertis(cate);
+                
+                document.querySelectorAll('.certiCate li').forEach(btn => btn.classList.remove('cateOn'));
+                button.classList.add('cateOn');
+            });
+        });
+
+        // 프로젝트 필터링 함수
+        function filterCertis(cate) {
+            const certiCon = document.getElementById('certiCon');
+            certiCon.innerHTML = '';
+        
+            const certiCate = cate === 'all'
+                ? datas.certificate.sort((a, b) => b.no - a.no)
+                : datas.certificate.filter(certificate => certificate.cate.toLowerCase() === cate).sort((a, b) => b.no - a.no);
+            
+            certiCate.forEach(certi => {
+                const li = document.createElement('li');        
+                li.innerHTML = `
+                    <div class="top">
+                        <p class="name">${certi.name}</p>
+                        <p class="date">${certi.date}</p>
+                    </div>
+                    <p class="detail">${certi.detail}</p>
+                    <p class="issuer">${certi.issuer}</p>
+                    <i class="icon fa-solid ${certi.cate == "design" ? `fa-palette` : certi.cate == "OA" ? `fa-file-lines` : certi.catedetail == "eco" ? `fa-comments-dollar` : certi.catedetail == "car" ? "fa-car" : ""}"></i>
+                `;
+                certiCon.appendChild(li);
+            });
+        }
+    
+        // 초기 로딩 시 전체 프로젝트를 보여줌
+        filterCertis('all');
+
+        // --------------------------------------------------------------------------------------------------
+        // 알림
+        const alarmBtn = document.querySelector(".alarm");
+        
+        const today = new Date();
+        const formatDay = today.toISOString().split('T')[0];
+
+        const alarmCon = document.getElementById('alarmCon');
+        const alarmShow = datas.update;
+        
+        const month1 = new Date();
+        month1.setMonth(today.getMonth() - 1);
+
+        alarmShow.forEach(alarm => {
+            const ul = document.createElement('ul');
+            ul.id = "alarmMain";
+            const alarmHTML = [];
+        
+            if (!alarm.experience) {
+                alarm.experience = formatDay;
+            }
+        
+            if (alarm.profile && !isNaN(new Date(alarm.profile).getTime()) && new Date(alarm.profile) >= month1) {
+                alarmHTML.push(`<li>프로필<span>${alarm.profile}</span></li>`);
+            }
+            if (alarm.experience && !isNaN(new Date(alarm.experience).getTime()) && new Date(alarm.experience) >= month1) {
+                alarmHTML.push(`<li>경력<span>${alarm.experience}</span></li>`);
+            }
+            if (alarm.project && !isNaN(new Date(alarm.project).getTime()) && new Date(alarm.project) >= month1) {
+                alarmHTML.push(`<li>프로젝트<span>${alarm.project}</span></li>`);
+            }
+            if (alarm.certificate && !isNaN(new Date(alarm.certificate).getTime()) && new Date(alarm.certificate) >= month1) {
+                alarmHTML.push(`<li>자격증<span>${alarm.certificate}</span></li>`);
+            }
+            if (alarm.skill && !isNaN(new Date(alarm.skill).getTime()) && new Date(alarm.skill) >= month1) {
+                alarmHTML.push(`<li>스킬<span>${alarm.skill}</span></li>`);
+            }
+        
+            // 업데이트된 항목이 있을 경우 ul에 추가
+            if (alarmHTML.length > 0) {
+                alarmHTML.unshift(`<li class="title">업데이트 내역<span>(최근 1개월 이내)</span></li>`);
+                ul.innerHTML = alarmHTML.join(''); // 배열을 HTML로 변환
+                alarmCon.appendChild(ul); // ul을 alarmCon에 추가
+                alarmBtn.classList.add("alarmOn");
+            }
+        });
+
+        alarmBtn.addEventListener('click', () => {
+            const alarmTool = document.getElementById("alarmMain");
+            if(alarmTool.classList.contains('alarmOpen')){
+                alarmTool.classList.remove('alarmOpen');
+            } else{
+                alarmTool.classList.add('alarmOpen');
+            };
+        });
     })
     .catch(error => {
         console.error("데이터를 불러오는 중 오류가 발생했습니다:", error);
     });
 
-// 라이트/다크모드
-document.addEventListener('DOMContentLoaded', function() {
-    const switchInput = document.getElementById('modeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'light'; // 기본값: light
-
-    if (currentTheme == 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        switchInput.checked = true;
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        switchInput.checked = false;
-    }
-
-    // 토글 스위치 변경 시 테마 변경
-    switchInput.addEventListener('change', function() {
-        if (this.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+function detailOpen(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const sectionDetails = document.querySelectorAll('.sectionDetail');
+    const html = document.documentElement;
+    const body = document.body;
+    sectionDetails.forEach((section) => {
+        section.classList.remove('detailOpen');
     });
-});
 
-// 툴팁 보이기/숨기기
-let toggles = $(".toggle");
-$(document).on("click", ".toggle", function(e){
-    if ($(this).next(".tooltip").hasClass("active")) {
-        $(this).next(".tooltip").removeClass("active").fadeOut();
+    const targetId = event.target.id;
+    console.log(targetId);
+
+    if (!targetId || targetId.trim() === "") {
+        console.error("유효하지 않은 클래스 이름입니다:", targetId);
+        return;
+    }
+
+    const targetElement = document.querySelector(`.${targetId.trim()}`);
+
+    if (targetElement) {
+        targetElement.classList.add('detailOpen');
+        html.classList.add('modalOpen');
+        body.classList.add('modalOpen');
     } else {
-        $(".tooltip").hide().removeClass("active");
-        $(this).next(".tooltip").addClass("active").fadeIn();
+        console.error(`Class가 '${targetId}'인 요소를 찾을 수 없습니다.`);
     }
-    e.stopPropagation();
-});
+};
 
-$(document).on("click", function(e) {
-    if (!$(e.target).closest('.tooltip').length && !$(e.target).closest('.toggle').length) {
-        $(".tooltip").removeClass("active").fadeOut();
-    }
-});
+function homeBtn(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const sectionDetails = document.querySelectorAll('.sectionDetail');
+    const html = document.documentElement;
+    const body = document.body;
 
-// 모바일 GNB 토글
-$(document).on("click", ".gnbToggle", function() {
-    if (!$(this).hasClass("gnbOn")) {
-        $(this).addClass("gnbOn").next(".gnb").fadeIn();
-    }
-});
-$(document).on("click", ".gnb", function() {
-    if ($(".gnbToggle").css("display") !== "none") {
-        $(".gnbToggle").removeClass("gnbOn");
-        $(this).fadeOut();
-    }
-});
+    sectionDetails.forEach((section) => {
+        section.classList.remove('detailOpen');
+    });
+    html.classList.remove('modalOpen');
+    body.classList.remove('modalOpen');
+};

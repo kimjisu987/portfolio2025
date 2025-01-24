@@ -1,21 +1,23 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 :root {
-  --mainColor: #FFDA74;
-  --backColor: #F6F6F6;
-  --fontColor: #000000;
-  --borderColor: #CCCCCC;
-  --subFont: #777777;
+  --backColor: #F5F6FA;
+  --borderColor: #B8BCD5;
+  --fontColor: #312F4D;
+  --pointColor: #4644D1;
+  --redColor: #FF2D2D;
   --whiteColor: #FFFFFF;
+  --boxShadow: 0 0 4px rgba(0, 8, 99, 0.5);
 }
 
 [data-theme=dark] {
-  --mainColor: #FFDA74;
-  --backColor: #333333;
-  --fontColor: #FFFFFF;
-  --borderColor: #777777;
-  --subFont: #CCCCCC;
-  --whiteColor: #000000;
+  --backColor: #312F4D;
+  --borderColor: #B8BCD5;
+  --fontColor: #F5F6FA;
+  --pointColor: #6765FF;
+  --redColor: #FF6C6C;
+  --whiteColor: #121212;
+  --boxShadow: 0 0 4px rgba(245, 246, 250, 0.5);
 }
 
 /* CSS 초기화 */
@@ -72,7 +74,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid var(--backColor);
   margin: 1em 0;
   padding: 0;
 }
