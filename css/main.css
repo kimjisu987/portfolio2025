@@ -1026,7 +1026,7 @@ main .sectionCon3 {
   background: var(--pointColor);
   color: var(--whiteColor);
   border-radius: 0.5rem;
-  line-height: 250%;
+  line-height: 200%
   display: flex;
   gap: 0.5rem;
   align-items: center;
