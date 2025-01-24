@@ -1036,6 +1036,11 @@ main .sectionCon3 {
   height: 100%;
   aspect-ratio: 1;
 }
+@media screen and (max-width: 768px) {
+  .section6 button {
+    font-size: 1rem;
+  }
+}
 .section6 button .fa-arrow-right {
   transform: rotate(-45deg);
 }
