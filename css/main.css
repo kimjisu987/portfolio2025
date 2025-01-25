@@ -139,15 +139,8 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-text-fill-color: transparent;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
-  -webkit-text-fill-color: transparent;
-  box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -156,6 +149,7 @@ input:autofill:hover,
 input:autofill:focus,
 input:autofill:active {
   -webkit-text-fill-color: transparent;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -498,8 +492,7 @@ main .sectionCon3 {
 }
 .section1 .left img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .section1 .right {
   display: flex;
@@ -584,8 +577,7 @@ main .sectionCon3 {
 .section2 .list li img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .section2 button {
   background: var(--pointColor);
@@ -740,8 +732,7 @@ main .sectionCon3 {
 .section4 .left img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .section4 .center {
   flex: 1;
@@ -838,7 +829,6 @@ main .sectionCon3 {
 }
 @media screen and (min-width: 768px) and (max-width: 1300px) {
   .section5 {
-    width: -moz-min-content;
     width: min-content;
     min-width: 12rem;
   }
@@ -861,7 +851,6 @@ main .sectionCon3 {
   justify-content: center;
   align-items: center;
   gap: 0.6rem;
-  width: -moz-max-content;
   width: max-content;
   flex: 1 1 30%;
   flex-direction: column;
@@ -1026,7 +1015,7 @@ main .sectionCon3 {
   background: var(--pointColor);
   color: var(--whiteColor);
   border-radius: 0.5rem;
-  line-height: 200%
+  line-height: 250%;
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -1035,11 +1024,7 @@ main .sectionCon3 {
   font-weight: 700;
   height: 100%;
   aspect-ratio: 1;
-}
-@media screen and (max-width: 768px) {
-  .section6 button {
-    font-size: 1rem;
-  }
+  line-height: 200%;
 }
 .section6 button .fa-arrow-right {
   transform: rotate(-45deg);
@@ -1057,6 +1042,11 @@ main .sectionCon3 {
   }
   100% {
     transform: rotate(-45deg);
+  }
+}
+@media screen and (max-width: 768px) {
+  .section6 button {
+    font-size: 1rem;
   }
 }
 
@@ -1268,7 +1258,6 @@ main .sectionCon3 {
 .projectDetail .detailBox .projectCate {
   display: flex;
   gap: 1rem;
-  width: -moz-min-content;
   width: min-content;
 }
 .projectDetail .detailBox .projectCate li {
@@ -1341,15 +1330,12 @@ main .sectionCon3 {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .projectDetail .detailBox .projectCon li .imgWrap .tag {
   position: relative;
   z-index: 1;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   font-size: 0.88rem;
   padding: 0.2rem 0.4rem;
@@ -1584,8 +1570,7 @@ main .sectionCon3 {
 .careerDetail .detailBox .careerCon li .img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .careerDetail .detailBox .careerCon li .img .state {
   position: absolute;
@@ -1746,7 +1731,6 @@ main .sectionCon3 {
 .certiDetail .detailBox .certiCate {
   display: flex;
   gap: 1rem;
-  width: -moz-min-content;
   width: min-content;
 }
 .certiDetail .detailBox .certiCate li {
@@ -1852,4 +1836,4 @@ main .sectionCon3 {
   100% {
     transform: rotate(-45deg);
   }
-}/*# sourceMappingURL=main.css.map */
+}

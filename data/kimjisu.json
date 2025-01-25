@@ -3,9 +3,9 @@
     {
       "profile":"2025-01-23",
       "experience":"",
-      "project":"2025-01-23",
-      "certificate":"2024-09-01",
-      "skill":"2025-01-23"
+      "project":"2025-01-24",
+      "certificate":"2024-09-11",
+      "skill":"2024-09-07"
     }
   ],
   "profile":[
@@ -362,6 +362,27 @@
       "notion":"https://yummy-feta-11c.notion.site/17df3a26009a8013b009cbf5dcf5ca8f?pvs=4",
       "positionMemo":["PUB","DESIGN"],
       "img":"dongne.gif"
+    },
+    {
+      "no":"14",
+      "cate":"PERS",
+      "favicon":"favi_portfolio2025.jpg",
+      "mainimg":"main_portfolio2025.jpg",
+      "name":"2025 포트폴리오",
+      "intro":"JSON 기반 데이터 구조를 활용한 2025 버전 포트폴리오",
+      "startdate":"2025-01-21",
+      "enddate":"2025-01-24",
+      "position":["FE","PUBL","UX/UI"],
+      "company":"개인",
+      "contribution":"100%",
+      "mainlang":["HTML5","SCSS","JavaScript"],
+      "website":"https://kimjisu987.github.io/portfolio2025",
+      "lang":["HTML5","SCSS","JavaScript"],
+      "designtool":["Figma"],
+      "libraries":[""],
+      "notion":"https://yummy-feta-11c.notion.site/2025-17df3a26009a8013b009cbf5dcf5ca8f?pvs=4",
+      "positionMemo":["FE","PUB","DESIGN"],
+      "img":"portfolio2025.gif"
     }
   ],
   "certificate":[

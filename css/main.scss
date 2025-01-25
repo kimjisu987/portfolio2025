@@ -403,6 +403,10 @@ main {
         font-size: $miniTitle;
         @include button100;
         height: 100%; aspect-ratio: 1;
+        line-height: 200%;
+        @include media("mobile") {
+            font-size: 1rem;
+        }
     }
 }
 

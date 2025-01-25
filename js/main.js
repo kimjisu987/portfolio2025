@@ -41,7 +41,7 @@ fetch('./data/kimjisu.json')
         // 카드 - 경력 개월수
         const cardList2 = document.getElementById('careerCount');
         let careerCount = 0;
-        
+
         // position이 "퍼블리셔" 또는 "디자이너"인 데이터만 계산
         datas.experience.forEach(experience => {
             if (experience.position == "퍼블리셔" || experience.position == "디자이너") {
