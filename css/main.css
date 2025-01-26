@@ -990,7 +990,7 @@ main .sectionCon3 {
 .section6 #alarmMain {
   display: none;
   position: absolute;
-  bottom: -9.5rem;
+  bottom: -8rem;
   left: 0rem;
   background: var(--whiteColor);
   padding: 1rem;
