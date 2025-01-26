@@ -1580,8 +1580,8 @@ main .sectionCon3 {
 }
 .careerDetail .detailBox .careerCon li .img {
   position: relative;
-  height: 40vw;
-  max-height: 10rem;
+  height: 10rem;
+  max-height: 25vw;
   aspect-ratio: 1;
   background: var(--whiteColor);
   padding: 1rem;
@@ -1848,8 +1848,8 @@ main .sectionCon3 {
   justify-content: center;
   transition: 0.3s;
   font-weight: 700;
-  left: 1rem;
-  bottom: 1rem;
+  right: 1rem;
+  top: 1rem;
   height: 3rem;
   width: 3rem;
   font-size: 1.2rem;
