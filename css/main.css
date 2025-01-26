@@ -793,6 +793,11 @@ main .sectionCon3 {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+@media screen and (max-width: 768px) {
+  .section4 .company {
+    font-size: 1.2rem;
+  }
+}
 .section4 .state {
   display: inline-block;
   position: relative;
@@ -1009,6 +1014,11 @@ main .sectionCon3 {
 .section6 .name {
   font-size: 1.5rem;
   font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+  .section6 .name {
+    font-size: 1.2rem;
+  }
 }
 .section6 button {
   font-size: 1.5rem;
@@ -1363,6 +1373,11 @@ main .sectionCon3 {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+@media screen and (max-width: 768px) {
+  .projectDetail .detailBox .projectCon li .title {
+    font-size: 1.2rem;
+  }
+}
 .projectDetail .detailBox .projectCon li .detailWrap {
   display: flex;
   gap: 1rem;
@@ -1519,6 +1534,11 @@ main .sectionCon3 {
   font-size: 1.5rem;
   font-weight: 700;
 }
+@media screen and (max-width: 768px) {
+  .careerDetail .detailBox .timeline .date {
+    font-size: 1.2rem;
+  }
+}
 .careerDetail .detailBox .timeline .name {
   box-sizing: border-box;
   text-overflow: ellipsis;
@@ -1613,6 +1633,11 @@ main .sectionCon3 {
   font-weight: 700;
   line-height: 120%;
   margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .careerDetail .detailBox .careerCon li .company {
+    font-size: 1.2rem;
+  }
 }
 .careerDetail .detailBox .careerCon li .position::before {
   content: "\f2c1";
@@ -1722,6 +1747,11 @@ main .sectionCon3 {
   font-size: 1.5rem;
   font-weight: 700;
 }
+@media screen and (max-width: 768px) {
+  .skillDetail .detailBox .skillCon li .skillName .level {
+    font-size: 1.2rem;
+  }
+}
 
 .certiDetail .detailBox {
   display: flex;
@@ -1790,6 +1820,11 @@ main .sectionCon3 {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 180%;
+}
+@media screen and (max-width: 768px) {
+  .certiDetail .detailBox .certiCon .name {
+    font-size: 1.2rem;
+  }
 }
 .certiDetail .detailBox .certiCon .date {
   font-size: 0.88rem;
