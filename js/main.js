@@ -14,7 +14,7 @@ fetch('./data/kimjisu.json')
             const profileHTML = `
                 <div class="top">
                     <div class="left">
-                        <img src="./image/profile.jpg" alt="프로필 사진">
+                        <img src="./image/profile.png" alt="프로필 사진">
                     </div>
                     <div class="right">
                         <h2 class="name">${profile.name}</h2>

@@ -489,6 +489,7 @@ main .sectionCon3 {
   aspect-ratio: 1;
   border-radius: 1rem;
   overflow: hidden;
+  background: var(--backColor);
 }
 .section1 .left img {
   width: 100%;
