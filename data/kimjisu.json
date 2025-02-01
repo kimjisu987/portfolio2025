@@ -302,7 +302,7 @@
     },
     {
       "no":"11",
-      "cate":"TEAM",
+      "cate":"PERS",
       "favicon":"favi_todays_lunch.jpg",
       "mainimg":"main_todays_lunch.jpg",
       "name":"점메추",
@@ -323,7 +323,7 @@
     },
     {
       "no":"12",
-      "cate":"PERS",
+      "cate":"TEAM",
       "favicon":"favi_ourchat.jpg",
       "mainimg":"main_ourchat.jpg",
       "name":"OURCHAT",
