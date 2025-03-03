@@ -119,8 +119,8 @@ fetch('./data/kimjisu.json')
                         <p class="percent">기여도 <span class="number">${project.contribution}<span></p>
                     </div>
                     <div class="btnBox">
-                        <a href="${project.notion}" class="notionBtn">정리노트</a>
-                        <a href="${project.website}">웹사이트</a>
+                        <a href="${project.notion}" class="notionBtn" target="_blank">정리노트</a>
+                        <a href="${project.website}" target="_blank">웹사이트</a>
                     </div>
                 `;
                 projectCon.appendChild(li);
