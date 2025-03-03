@@ -225,7 +225,7 @@ main {
 
 .section4 {
     @include flexY;
-    height: 50%;
+    height: 44%;
     @include media("tablet", "mobile") {
         height: 100%;
     }
@@ -250,7 +250,7 @@ main {
         }
     }
     .left {
-        width: 5rem; height: 5rem;
+        width: 4.5rem; height: 4.5rem;
         background: var(--backColor);
         border-radius: 0.5rem;
         padding: 0.5rem;

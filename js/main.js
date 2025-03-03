@@ -148,7 +148,7 @@ fetch('./data/kimjisu.json')
                 <div class="left"><img src="./image/${career.logo}" alt="${career.company} 로고"></div>
                 <div class="center">
                     <p class="company">${career.company}${career.relation == "1" ? `<span class="state">재직중</span>` : ''}</p>
-                    <p class="date">${career.startdate} ~ ${career.enddate || ''}</p>
+                    <p class="date">${career.startdate} ~ ${career.enddate || '재직중'}</p>
                 </div>
                 <div class="right">${career.position}</div>
             `;
