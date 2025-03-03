@@ -166,10 +166,11 @@ main {
 
 .section2 {
     @include flexY;
+    justify-content: space-between;
     height: 50%;
     overflow: hidden;
     .list {
-        width: 500%; height: 100%;
+        width: 500%; height: 50%;
         @include flexX;
         animation: cardMove 10s linear infinite;
         li {
